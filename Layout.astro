@@ -1,0 +1,66 @@
+---
+interface Props {
+	title: string;
+}
+import { ViewTransitions } from 'astro:transitions';
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="stylesheet" href="../font/Merienda-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+		<title>{title}</title>
+		<ViewTransitions/>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	@font-face {
+		font-family: "Merienda";
+		src: url(../font/Merienda-VariableFont_wght.woff2) format("woff2");
+	}
+	
+	@font-face {
+		font-family: "Nunito";
+		src: url(../font/Nunito.woff2) format("woff2");
+	}
+	html {
+		font-family: Nunito, sans-serif;
+		background: #e0e0e0;
+		background-size: 224px;
+	}
+	h1, h2, h3,h4{
+		font-family: Merienda, sans-serif;
+	}
+	
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>

@@ -1,0 +1,378 @@
+---
+import MenuMobile from "../components/M_Nav.astro";
+import Layout from "../layouts/Layout.astro";
+const knives = [
+    {
+        name: "Gyuto",
+        text: `Es el tipo de cuchillo más versátil de todos
+            los japoneses. Tiene una longitud, anchura
+            y curvatura similar a un cuchillo de chef
+            francés. Estos cuchillos sirven
+            para preparar la mayor parte de alimentos
+            del día a día. Por eso es el cuchillo princi-
+            pal de cualquier cocina. Los hay desde 18 cm
+            hasta 24. Los tamaños más habituales son
+            los de 20 o 21 cm, pero merece la pena pro-
+            bar las hojas más largas.`,
+        image: "/knife-25.webp",
+    },
+    {
+        name: "K-Gyuto",
+        text: `Es la abreviatura de "kiritsuke-style gyuto",
+            también llamados "gyuto con k-tip". Los kiritsukes tienen un perfil de hoja muy característico,
+            con un gran atractivo estético.
+            Los gyuto con la punta truncada reciben
+            este nombre para distinguirlos de los kirit-
+            suke reales. Para que un cuchillo con forma
+            de kiritsuke pueda ser considerado como tal
+            debe tener un solo bisel.`,
+        image: "/knife-16.webp",
+    },
+    {
+        name: "Santoku",
+        text: `El santoku es uno de los cuchillos más populares en los hogares japoneses. Y prácticamente todas las empresas occidentales de
+            cuchillería los han incluido en sus catálogos.`,
+        image: "/knife-15.webp",
+    },
+    {
+        name: "Petty",
+        text: `Son aún más pequeños que las puntillas.
+            Los petty son un tipo de cuchillos que
+            abarca una gran cantidad de formas y tamaños distintos. Lo que todos tienen en común
+            es que son hojas cortas y estrechas, adaptadas a trabajos delicados y tareas pequeñas.
+             En la cocina son los
+            más útiles después del de chef o del santoku. Y fuera de ella son sin duda los más
+            versátiles para cualquier tarea del día a día.`,
+        image: "/knife-14.webp",
+    },
+    {
+        name: "Nakiri",
+        text: `Es la versión de doble bisel del usuba. Es un
+            cuchillo de hoja rectangular. Tiene un filo completamente plano y una hoja ancha, lo
+            que lo hace perfecto para trocear verdura.
+            Gracias al diseño sin curvas de la hoja todo
+            el filo toca la tabla de cortar en cada corte.
+            De esta forma evitamos dejar trocitos de vegetal sin cortar, como puede ocurrir con los
+            cuchillos curvos.
+            Es muy cómodo para el trabajo de corte de
+            verduras, pero se puede sustituir por otros
+            tipos de cuchillos.`,
+        image: "/knife-12.webp",
+    },
+    {
+        name: "Bunka",
+        text: `Es un cuchillo a medio camino entre un na-
+            kiri y un gyuto. Tiene una hoja corta, de
+            pala muy ancha, con algo de curvatura y la
+            punta truncada.
+            Tiene un uso parecido al del santoku, pero
+            con más anchura de pala y con una punta
+            algo más práctica. Es un tipo de cuchillo que
+            llama mucho la atención por lo atractiva
+            que resulta su estética.`,
+        image: "/knife-26.webp",
+    },
+    {
+        name: "Ko-Bunka",
+        text: `Es la versión en miniatura de un bunka.
+            Este cuchillo puede usarse como sustituto
+            de una puntilla. Con él se puede picar ajo o
+            cortar fruta con comodidad.
+            Es una opción interesante para un barman
+            que prepare cócteles con fruta y quiera
+            tener una herramienta original que llame la
+            atención.`,
+        image: "/knife-13.webp",
+    },
+    {
+        name: "Sujihiki",
+        text: `Es un cuchillo largo de filetear. Tiene una
+            hoja larga, estrecha y rígida, con muy poca
+            curvatura en el filo. Normalmente miden
+            entre 24 y 36 cm.
+            La hoja está diseñada para hacer tajos largos
+            y uniformes en grandes piezas de carne o
+            pescado. Gracias a la longitud de la hoja y
+            a la poca curvatura del filo se pueden hacer
+            tajos largos de una sola pasada. En líneas
+            generales, es la versión de doble bisel de un
+            yanagiba.`,
+        image: "/knife-11.webp",
+    },
+    {
+        name: "Chukabocho",
+        text: `Es el término japonés
+            para los Cai Dao, los cuchillos de chef
+            chinos. Tienen una hoja rectangular muy ancha, con un mango corto en uno de los
+            extremos.
+            Aunque recuerdan por su aspecto a las machetas de cocina no tienen nada que ver con
+            ellas. La hoja de un Cai Dao es delgada y frágil, como la de un gyuto.
+            Son los cuchillos multipropósito de los
+            chefs chinos, aunque su mejor función es la
+            de cortar verdura. Su gran anchura de pala
+            hace que sea muy cómodo usar el propio cuchillo para llevar los trozos de comida a la
+            sartén.`,
+        image: "/knife-9.webp",
+    },
+    {
+        name: "Honesuki",
+        text: `El honesuki es el cuchillo de deshuesar japo-
+            nés. Su diseño es completamente distinto a
+            los deshuesadores occidentales a los que estamos acostumbrados. Su hoja es rígida, de
+            perfil triangular y más gruesa que la mayoría de cuchillos japoneses. Han
+            resultado ser útiles para deshuesar cualquier tipo de animal, desde conejos hasta
+            cerdos y cabras.`,
+        image: "/knife-10.webp",
+    },
+    {
+        name: "Usuba",
+        text: `Es la versión de un solo bisel del nakiri.
+            Su nombre significa literalmente "hoja delgada. Está diseñado para cortar vegetales.
+            El perfil rectangular de la hoja hace que todo
+            el filo toque la tabla de cortar en cada pasada.`,
+        image: "/knife-8.webp",
+    },
+    {
+        name: "Yanagiba",
+        text: `Es el cuchillo tradicional japonés para preparar sushi y sashimi. Es el equivalente de
+            un solo bisel del sujihiki. La hoja alargada
+            y el filo tan agudo lo hacen perfecto para
+            hacer cortes largos y suaves.`,
+        image: "/knife-5.webp",
+    },
+    {
+        name: "Maguro bocho",
+        text: `Un
+            maguro bocho es el resultado de fabricar un
+            yanagiba de tamaño descomunal. Los hay
+            desde 40 centímetros de hoja hasta los de
+            casi dos metros.
+            Este tipo de cuchillos se utilizan en las lonjas de pescado para cortar piezas grandes
+            de atún. Para manejar las hojas más largas
+            hace falta un equipo de varias personas.`,
+        image: "/knife-7.webp",
+    },
+    {
+        name: "Takobiki",
+        text: `"Tako" significa pulpo en japonés. Este cuchillo es una variación del yanagiba diseñada para cortar con facilidad la carne de
+            este animal. Para ello tiene un filo más recto
+            que el del yanagiba, con menos curvatura.`,
+        image: "/knife-6.webp",
+    },
+    {
+        name: "Kiritsuke",
+        text: `El kiritsuke es el cuchillo de un solo bisel
+            más versátil de todos. Es una hoja a medio
+            camino entre un yanagiba y un usuba. Y,
+            por eso, puede usarse tanto para cortar
+            carne y pescado como verduras. Aunque es un cuchillo versátil, no es uno
+            con el que podamos hacer cualquier corte.
+            Podemos usarlo como un vanagiba o como
+            un usuba, pero cualquiera de esos dos cuchillos por separado hará mejor su función
+            que un kiritsuke.`,
+        image: "/knife-4.webp",
+    },
+    {
+        name: "Deba",
+        text: `Los deba son los cuchillos tradicionales ja-
+            poneses para limpiar y trocear el pescado.
+            Su nombre significa literalmente
+            "hoja
+            gruesa".
+            A pesar del grosor de la hoja siguen siendo
+            cuchillos de un solo bisel. Por tanto, no
+            están pensados para golpear con ellos o para
+            someterlos a grandes esfuerzos.`,
+        image: "/knife-3.webp",
+    },
+    {
+        name: "Soba Kiri",
+        text: `Es un cuchillo cuya forma recuerda a un
+            hacha de mano, aunque su propósito es
+            muy distinto. Este cuchillo tiene una hoja
+            larga y completamente recta que sobresale
+            por debajo del mango.
+            Gracias a este diseño puede cortar de forma
+            precisa la masa de harina utilizada para
+            hacer fideos japoneses.`,
+        image: "/knife-2.webp",
+    },
+];
+---
+
+<Layout title="afilador pro">
+    <section class="section">
+        <div class="flex justify-around items-center"><img
+            src="/logo%20jose%20miguel.svg"
+            alt=""
+            class="h-28 w-28"
+        />
+        <a href="https://instagram.com/afiladorpro?utm_source=qr" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="rgb(185 28 28 /1)" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+          </svg></a></div>
+        <div class="contain">
+            <div class="card">
+                {knives.map(knife => 
+                <div
+                    class="group h-56 bg-slate-300 p-3 flex justify-center items-center hover:bg-slate-900 transition-colors duration-300 relative"
+                >
+                    <div class="flex flex-col gap-4 items-center">
+                        <p class="text-black font-bold text-xl">{knife.name}</p>
+                        <img
+                            class="group-hover:opacity-20 object-cover w-96 max-w[15.375rem] max-h-[5.5rem]"
+                            src={knife.image}
+                            alt=""
+                        />
+                    </div>
+                    <p
+                        class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute flex justify-center items-center p-2"
+                    >
+                    {knife.text}
+                    </p>
+                </div>
+                )}
+            </div>
+
+            <div class="flex flex-col gap-2 mt-4">
+                <a class="fancy" href="/M_Knives">
+                    <span class="top-key"></span>
+                    <span class="text">Cuchillos</span>
+                    <span class="bottom-key-1"></span>
+                    <span class="bottom-key-2"></span>
+                  </a>
+                <a class="fancy active" href="#">
+                    <span class="top-key"></span>
+                    <span class="text">Cuchillos Japoneses</span>
+                    <span class="bottom-key-1"></span>
+                    <span class="bottom-key-2"></span>
+                  </a>
+        </div>
+
+            <div class="backsection">
+                <img src="/textura-1.webp" class="img" alt="" />
+            </div>
+        </div>
+        <MenuMobile active="Knives" />
+    </section>
+</Layout>
+
+<style>
+    .card {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: dense;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    place-content: center;
+    width: 100%;
+    margin: auto;
+  }
+
+  .fancy {
+ background-color: transparent;
+ border: 2px solid #000;
+ border-radius: 0;
+ box-sizing: border-box;
+ color: #fff;
+ cursor: pointer;
+ display: inline-block;
+ float: right;
+ font-weight: 700;
+ letter-spacing: 0.05em;
+ margin: 1.5625rem 0 0 0; 
+ outline: none;
+ overflow: visible;
+ padding: 1.25em 2em;
+ position: relative;
+ text-align: center;
+ text-decoration: none;
+ text-transform: none;
+ transition: all 0.3s ease-in-out;
+ user-select: none;
+ font-size: 13px;
+}
+
+.fancy::before {
+ content: " ";
+ width: 1.5625rem;
+ height: 2px;
+ background: black;
+ top: 50%;
+ left: 1.5em;
+ position: absolute;
+ transform: translateY(-50%);
+ transform-origin: center;
+ transition: background 0.3s linear, width 0.3s linear;
+}
+
+.fancy .text {
+ font-size: 1.125em;
+ line-height: 1.33333em;
+ padding-left: 2em;
+ display: block;
+ text-align: left;
+ transition: all 0.3s ease-in-out;
+ text-transform: uppercase;
+ text-decoration: none;
+ color: black;
+}
+
+.fancy .top-key {
+ height: 2px;
+ width: 1.5625rem;
+ top: -2px;
+ left: 0.625rem;
+ position: absolute;
+ background: #e8e8e8;
+ transition: width 0.5s ease-out, left 0.3s ease-out;
+}
+
+.fancy .bottom-key-1 {
+ height: 2px;
+ width: 1.5625rem;
+ right: 1.875rem;
+ bottom: -2px;
+ position: absolute;
+ background: #e8e8e8;
+ transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy .bottom-key-2 {
+ height: 2px;
+ width: 0.625rem;
+ right: 0.625rem;
+ bottom: -2px;
+ position: absolute;
+ background: #e8e8e8;
+ transition: width 0.5s ease-out, right 0.3s ease-out;
+}   
+
+.active {
+ color: white;
+ background: black;
+}
+
+.active::before {
+ width: 0.9375rem;
+ background: white;
+}
+
+.active .text {
+ color: white;
+ padding-left: 1.5em;
+}
+
+.active .top-key {
+ left: -2px;
+ width: 0px;
+}
+
+.active .bottom-key-1,
+ .active .bottom-key-2 {
+ right: 0;
+ width: 0;
+}
+</style>

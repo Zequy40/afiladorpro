@@ -1,0 +1,134 @@
+---
+import LandingHeader from "../components/LandingHeaderBis.astro";
+
+
+import Layout from "../layouts/Layout.astro"
+---
+
+<Layout title="contacto">
+    
+    <LandingHeader active="contact"/>
+    <section  class="header">
+        
+        <div id="bg-cloud">
+            <canvas id="cvs" width="2600px" height="2500px"></canvas>
+        </div>
+        
+        <div class="card">
+            <div class="remove-when-use">
+                <img src="https://afiladorpro.es/logo%20jose%20miguel.svg" alt="">
+                <label class="label">José Miguel</label>
+                <label>Para saber más pase el ratón por encima</label>
+            </div>
+            <div class="details">
+                <label>Nos desplazamos para afilar todo tipo de cuchillo, tijera y más consultenos sin compromiso al telefono.</label>
+                <p>
+                    C/Fraternidad nº8-9 - 11408 Jerez de la frontera
+                    <br>
+                    <i><svg xmlns="http://www.w3.org/2000/svg" width="20"  fill="currentColor" class="svg" viewBox="0 0 16 16">
+                        <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                        <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                      </svg> 637 92 46 46</i>
+                    <i><svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" class="svg" viewBox="0 0 16 16" data-astro-cid-j7pv25f6=""> <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" data-astro-cid-j7pv25f6=""></path> </svg> info@afiladorpro.es</i>
+                </p>
+            </div>
+        </div>
+        
+        
+    </section>
+    
+    </Layout> 
+    <style>
+        .header{
+            margin-top: 5.625rem;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;  
+        }
+#bg-cloud{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: url(https://afiladorpro.es/vecteezy_conjunto-de-nubes_21888221.png) no-repeat fixed;
+    background-position: -900px -90px;
+    animation: moveClouds 420s linear infinite;
+}
+@keyframes moveClouds {
+  0% {
+    background-position: -900px -90px;
+  }
+  100% {
+    background-position: 100vw 100vh;
+  }
+}
+
+#cvs{
+  position: absolute;
+  width: 2600px;
+    weight: 2500px;
+    background-color: #ffffffe0;
+}  
+
+.card {
+  width: 46.875rem ;
+  min-height: 22.125rem;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  position: relative;
+}
+
+.remove-when-use {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  color: black;
+  top: 10px;
+  font-weight: bold;
+}
+
+.details > p {
+  font-size: 1em;
+  margin-top: .5em;
+}
+
+.label {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.details > label {
+  font-weight: bold;
+}
+
+.details {
+  color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  bottom: 0;
+  height: 4em;
+  transition: height .5s ease-in-out;
+  padding: 0.6em;
+  overflow: hidden;
+}
+i{
+    display:flex;
+   gap: 6px;
+}
+
+.card:hover > .details {
+  height: 12em;
+}
+
+
+
+</style>

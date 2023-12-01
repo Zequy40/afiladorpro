@@ -1,0 +1,150 @@
+---
+const { id } = Astro.props
+---
+<section
+    class="landing-section bg-black h-screen text-center relative overflow-hidden"
+    data-header-color="white" id="about"
+>
+    <div class="z-30 relative h-full w-screen flex flex-col items-center">
+        <div class="h2-big">Quienes somos</div>
+        <header class="flex lg:gap-20 gap-10 lg:mt-36 mt-48 landscape:mt-24">
+            <video
+                autoplay
+                muted
+                loop
+                src="/about.webm"
+                class="object-cover lg:max-h-[70vh] max-h-[40vh]"></video>
+            <div class="card">
+                <h1 class="text-2xl pb-4 pt-4">Quienes somos</h1>
+                <div class="pl-8 pr-8 max-w-[730px]">
+                    <p class="text-start text-base mb-2">
+                        Afilador Profesional es una empresa que se especializa en el
+                        afilado de cuchillos, brindando un servicio experto y de
+                        calidad para restaurar el filo y la funcionalidad de
+                        estos utensilios indispensables en la cocina. Utilizamos
+                        técnicas precisas y herramientas especializadas para
+                        garantizar resultados óptimos, mejorando la experiencia
+                        culinaria de nuestros clientes. Y, ¿porqué
+                        nosotros? Descúbralo:
+                    </p>
+                    <ul>
+                        <li class="text-start text-sm mb-2">
+                            <span class="font-semibold"
+                                >Experiencia especializada:</span
+                            > Experiencia y conocimiento especializado en el ámbito
+                            del afilado de cuchillos. Formación en diversas técnicas
+                            de afilado y el manejo de una amplia variedad de cuchillos.
+                        </li>
+                        <li class="text-start text-sm mb-2">
+                            <span class="font-semibold"
+                                >Equipamiento de alta calidad:</span
+                            > Invertimos en tecnología punta para ser un diferenciador
+                            importante.
+                        </li>
+                        <li class="text-start text-sm mb-2">
+                            <span class="font-semibold"
+                                >Variedad de cuchillos atendidos:</span
+                            > Afilamos cuchillos de cocina estándar hasta cuchillos
+                            especializados, como cuchillos para filetear, cuchillos
+                            japoneses, cuchillos de chef, entre otros. Versatilidad
+                            en nuestros servicios.
+                        </li>
+                        <li class="text-start text-sm mb-2">
+                            <span class="font-semibold"
+                                >Servicio personalizado:</span
+                            > Nuestros servicios de afilado personalizados se adapta
+                            según las necesidades específicas de cada cliente. Nos
+                            adaptamos al afilado según el uso previsto del cuchillo,
+                            ya sea para cocina, caza, pesca, o cualquier otra actividad.
+                        </li>
+                        <li class="text-start text-sm mb-2">
+                            <span class="font-semibold"
+                                >Clientes satisfechos:</span
+                            > Empezamos a ser un referente en nuestro sector, para
+                            respaldar la calidad y la versatilidad de nuestros servicios.
+                        </li>
+                        <li class="text-start text-sm">
+                            <span class="font-semibold">Eficiencia:</span> Miramos
+                            mucho la eficiencia en el proceso de afilado para que
+                            sea un factor decisivo para nuestros clientes.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <footer class="flex flex-grow justify-end flex-col pb-2">
+            <div>
+                <p class="text-white">AFILADOR PRO - 637 92 46 46 | Design by Zekidev</p>
+            </div>
+        </footer>
+    </div>
+    
+    <div class="min-[1860px]:absolute min-[1860px]:top-0 min-[1860px]:bottom-0 min-[1860px]:w-full min-[1860px]:z-10">
+        <img
+            src="nubes.jpg"
+            class="w-full object-cover bg-white/100 landscape:h-full"
+            alt=""
+        />
+    </div>
+
+    <div class="min-[1860px]:hidden absolute top-0 bottom-0 h-full z-10">
+        <img
+            src="nubes.jpg"
+            class="h-full object-cover bg-white/100"
+            alt=""
+        />
+    </div>
+</section>
+
+<style>
+    #cloudanm {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: url(./../../public/nubes.jpg) no-repeat fixed;
+        background-position: -900px -90px;
+    }
+    .card {
+        width: 500px;
+        max-height: 70vh;
+        border-radius: 50px;
+        background: #e0e0e0;
+        box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+        
+    }
+    .h2-big {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 6rem;
+position: absolute;
+top: 60px;
+left: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+text-transform: uppercase;
+text-align: center;
+background-color: ##579EDC;
+color: transparent;
+text-shadow: 0 3px 3px rgb(255 255 255/0.5),
+0 -1px 1px rgb(0 0 0/.3);
+background-clip: text;
+z-index: -3;
+width: 100%;
+}
+@media (max-width: 1024px) {
+    .h2-big {
+        top: 90px;
+    }
+}
+@media (orientation: landscape) {
+    .card {
+        
+        max-height: 90vh;
+        
+    }
+}
+    
+</style>

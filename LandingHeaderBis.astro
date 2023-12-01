@@ -1,0 +1,104 @@
+---
+const { active } = Astro.props
+---
+<header
+	id="landingHeader"
+	class="py-4 px-10 flex items-center fixed top-0 w-full justify-between z-50"
+>
+	<div class="flex flex-grow basis-0">
+		<img
+			src="https://afiladorpro.es/logo%20jose%20miguel.svg"
+			alt=""
+			class="h-12 w-28"
+		/>
+	</div>
+	<nav class="flex flex-grow basis-0">
+		<ul
+			class="relative flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-300 [&>li>a]:text-current [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+		>
+		<li class=""><a href="/" class=`btn ${active === "home" ? "active" : ''}`>Home</a></li>
+		<li class="relative group">
+            <a href="/#price" class="btn">Precios</a>
+        </li>
+
+			<li class=""><a href="/#about" class="btn">Quienes somos</a></li>
+			<li class=""><a href="/Images" class=`btn ${active === "gallery" ? "active" : ''}`>Galeria</a></li>
+			<li class=""><a href="/Contact" class=`btn ${active === "contact" ? "active" : ''}` >Contacto</a></li>
+			<!-- <li class=""><a href="#" class="btn">Productos</a></li> -->
+		</ul>
+	</nav>
+	<nav class="flex flex-grow basis-0 justify-end">
+		<ul
+			class="relative flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-300 [&>li>a]:text-current [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+		>
+			
+			<li class=""><a href="https://instagram.com/afiladorpro?utm_source=qr" target="_blank">Instagram</a></li>
+		</ul>
+	</nav>
+
+</header>
+
+<style>
+	.btn{
+		position: relative;
+	}
+	.btn::before{
+		content: '';
+		display: block;
+		width: 0%;
+		height: 2px;
+		background: red;
+		position: absolute;
+		left: 0;
+		bottom:50%;
+		opacity: 0;
+		transition: all 1s;
+	}
+	.btn:hover:before{
+		bottom: 0;
+		opacity: 1;
+		width: 100%;
+	}
+	.active{
+		position: relative;
+	}
+	.active:after{
+		content: '';
+		display: block;
+		width: 20px;
+		height: 1px;
+		background: red;
+		transform: rotate(90deg) translate(-50%);
+		position: absolute;
+		left: 40%;
+		top:0%;
+		
+
+	}
+</style>
+
+<script>
+	const header = document.querySelector("#landingHeader") as HTMLElement;
+	const observerOptions = {
+		root: null,
+		rootMargin: "0px",
+		threshold: 0.9,
+	};
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			const { isIntersecting, target } = entry;
+			if (isIntersecting) {
+				const color = entry.target.getAttribute("data-header-color");
+				header.style.color = color;
+				sections.forEach((section) => {
+					section.classList.remove('active')
+				})
+				target.classList.add('active')
+			}
+		});
+	}, observerOptions);
+
+	const sections = document.querySelectorAll(".landing-section");
+	sections.forEach((section) => observer.observe(section));
+</script>

@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LandingHeader from "../components/LandingHeader.astro";
+import HeroSection from "../components/HeroSection.astro";
+import Price from "../components/Price.astro";
+import About from "../components/About.astro";
+const {active} = Astro.props
+---
+
+<LandingHeader />
+	<main class="snap-y snap-mandatory relative w-full h-screen overflow-auto scroll-smooth">
+		<div class="snap-center">
+			<HeroSection />
+		</div>
+		<div class="snap-center">
+			<Price />
+		</div>
+		<div class="snap-center">
+			<About />
+		</div>
+		<div class="snap-center">
+			<HeroSection />
+		</div>
+		
+	</main>

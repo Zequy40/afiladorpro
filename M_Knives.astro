@@ -1,0 +1,262 @@
+---
+import MenuMobile from "../components/M_Nav.astro";
+import Layout from "../layouts/Layout.astro";
+const knives = [
+    {
+        name: "Cuchillo Jamonero",
+        text: `Cuchillo Jamonero que se usa para los cortes de jamón, fino y sin pulir para que no se pegue el jamón al cortarlo. Un filo estrecho para que el corte sea preciso y se deslise entre el jamón.`,
+        image: "/knife-1.webp",
+    },
+    {
+        name: "Cuchillo Chef",
+        text: `También llamado "cebollero". Es el cuchillo
+          más versátil de todos. El 80% del tiempo
+          este será el cuchillo que tengas en la mano.
+          Por eso merece la pena invertir la mayor
+          parte del presupuesto en un buen cuchillo
+          de chef.
+          Suelen tener una longitud entre los 18 y los
+          24 cm de hoja. Aunque la medida más habi-
+          tual es de 20 cm (8 pulgadas).`,
+        image: "/knife-24.webp",
+    },
+    {
+        name: "Cuchillo Puntilla",
+        text: `La puntilla es un cuchillo de hoja corta y es-
+          trecha. Eso nos permite realizar con ella tra-
+          bajos que necesiten precisión y delicadeza.
+          Picar fino un ajo o pelar una verdura son tra-
+          bajos más cómodos para una puntilla que
+          para cuchillos más grandes.`,
+        image: "/knife-22.webp",
+    },
+    {
+        name: "Cuchillo Pelar",
+        text: `Son aún más pequeños que las puntillas.
+          Están pensados para pelar la piel de frutas
+          y verduras con delicadeza. También se utili-
+          zan para tallar formas en ellas.
+          Dependiendo de la forma de la hoja pode-
+          mos encontrar varios tipos. Los más comu-
+          nes son los de punta de lanza, los de pie de
+          oveja y los de pico de pájaro.`,
+        image: "/knife-23.webp",
+    },
+    {
+        name: "Cuchillo Filetear",
+        text: `Es el equivalente europeo del sujihiki. Es
+          un cuchillo parecido al cebollero, pero con
+          la hoja más larga y algo menos de anchura
+          de pala. Este cuchillo tiene una hoja larga y rígida para permitir hacer cortes largos en
+          piezas de carne o pescado.`,
+        image: "/knife-20.webp",
+    },
+    {
+        name: "Cuchillo Flexible",
+        text: `Tiene una hoja más corta que un cebollero
+          y una pala mucho más estrecha. La hoja es
+          delgada y flexible y recuerda en la forma a
+          la de un cuchillo de deshuesar. Esta flexibili-
+          dad del cuchillo permite limpiar el pescado
+          con facilidad.`,
+        image: "/knife-21.webp",
+    },
+    {
+        name: "Cuchillo Deshuesar",
+        text: `Es de hoja estrecha y robusta, diseñado para
+          separar la carne del hueso. Podemos encon-
+          trar un abanico amplio de longitudes de
+          hoja. Desde tamaños poco más grandes que
+          una puntilla hasta longitudes similares a las
+          de un cebollero.
+          Tienen una hoja rígida y un poco gruesa,
+          por lo que aguantan bien cierto erado de
+          maltrato.`,
+        image: "/knife-19.webp",
+    },
+    {
+        name: "Machete de Cocina",
+        text: `La macheta es un elemento imprescindible
+          en cualquier cocina en la que se haga trabajo
+          pesado. Es un cuchillo de hoja corta, ancha y robusto.`,
+        image: "/knife-17.webp",
+    }
+];
+---
+
+<Layout title="afilador pro">
+    <section class="section">
+        <div class="flex justify-around items-center"><img
+            src="/logo%20jose%20miguel.svg"
+            alt=""
+            class="h-28 w-28"
+        />
+        <a href="https://instagram.com/afiladorpro?utm_source=qr" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="rgb(185 28 28 /1)" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+          </svg></a></div>
+        <div class="contain">
+            <div class="card">
+                {knives.map(knife => 
+                <div
+                    class="group h-56 bg-slate-300 p-3 flex justify-center items-center hover:bg-slate-900 transition-colors duration-300 relative"
+                >
+                    <div class="flex flex-col gap-4 items-center">
+                        <p class="text-black font-bold text-xl">{knife.name}</p>
+                        <img
+                            class="group-hover:opacity-20 object-cover w-96 max-w[15.375rem] max-h-[5.5rem]"
+                            src={knife.image}
+                            alt=""
+                        />
+                    </div>
+                    <p
+                        class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute flex justify-center items-center p-2"
+                    >
+                    {knife.text}
+                    </p>
+                </div>
+                )}
+            </div>
+
+            <div class="flex flex-col gap-2 mt-4">
+                <a class="fancy active" href="#">
+                    <span class="top-key"></span>
+                    <span class="text">Cuchillos</span>
+                    <span class="bottom-key-1"></span>
+                    <span class="bottom-key-2"></span>
+                  </a>
+                <a class="fancy" href="/M_Japan-Knives">
+                    <span class="top-key"></span>
+                    <span class="text">Cuchillos Japoneses</span>
+                    <span class="bottom-key-1"></span>
+                    <span class="bottom-key-2"></span>
+                  </a>
+        </div>
+
+            <div class="backsection">
+                <img src="/textura-1.webp" class="img" alt="" />
+            </div>
+        </div>
+        <MenuMobile active="Knives" />
+    </section>
+</Layout>
+
+<style>
+    .card {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: dense;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    place-content: center;
+    width: 100%;
+    margin: auto;
+  }
+
+  .fancy {
+ background-color: transparent;
+ border: 2px solid #000;
+ border-radius: 0;
+ box-sizing: border-box;
+ color: #fff;
+ cursor: pointer;
+ display: inline-block;
+ float: right;
+ font-weight: 700;
+ letter-spacing: 0.05em;
+ margin: 1.5625rem 0 0 0; 
+ outline: none;
+ overflow: visible;
+ padding: 1.25em 2em;
+ position: relative;
+ text-align: center;
+ text-decoration: none;
+ text-transform: none;
+ transition: all 0.3s ease-in-out;
+ user-select: none;
+ font-size: 13px;
+}
+
+.fancy::before {
+ content: " ";
+ width: 1.5625rem;
+ height: 2px;
+ background: black;
+ top: 50%;
+ left: 1.5em;
+ position: absolute;
+ transform: translateY(-50%);
+ transform-origin: center;
+ transition: background 0.3s linear, width 0.3s linear;
+}
+
+.fancy .text {
+ font-size: 1.125em;
+ line-height: 1.33333em;
+ padding-left: 2em;
+ display: block;
+ text-align: left;
+ transition: all 0.3s ease-in-out;
+ text-transform: uppercase;
+ text-decoration: none;
+ color: black;
+}
+
+.fancy .top-key {
+ height: 2px;
+ width: 1.5625rem;
+ top: -2px;
+ left: 0.625rem;
+ position: absolute;
+ background: #e8e8e8;
+ transition: width 0.5s ease-out, left 0.3s ease-out;
+}
+
+.fancy .bottom-key-1 {
+ height: 2px;
+ width: 1.5625rem;
+ right: 1.875rem;
+ bottom: -2px;
+ position: absolute;
+ background: #e8e8e8;
+ transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy .bottom-key-2 {
+ height: 2px;
+ width: 0.625rem;
+ right: 0.625rem;
+ bottom: -2px;
+ position: absolute;
+ background: #e8e8e8;
+ transition: width 0.5s ease-out, right 0.3s ease-out;
+}   
+
+.active {
+ color: white;
+ background: black;
+}
+
+.active::before {
+ width: 0.9375rem;
+ background: white;
+}
+
+.active .text {
+ color: white;
+ padding-left: 1.5em;
+}
+
+.active .top-key {
+ left: -2px;
+ width: 0px;
+}
+
+.active .bottom-key-1,
+ .active .bottom-key-2 {
+ right: 0;
+ width: 0;
+}
+</style>
