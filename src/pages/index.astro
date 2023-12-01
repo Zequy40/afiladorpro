@@ -1,252 +1,47 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
+import Layout from "../layouts/Layout.astro";
+import LandingHeader from "../components/LandingHeader.astro";
+import HeroSection from "../components/HeroSection.astro";
+import HeroSectionMenu from "../components/M_HeroSection.astro";
+import Gallery from "./Images.astro";
+import About from "../components/About.astro";
+import Service from "../components/Service.astro";
+import MenuMobile from "../components/M_Nav.astro";
 
 ---
 
 <Layout title="Afilador Pro">
-	<main>
-		
-		<div id="bg-cloudanm">
-			<canvas id="cvs" width="2000" height="2500"></canvas>
+	<div class="desktop">
+	<LandingHeader active="home"/>
+	<main class="snap-y snap-mandatory relative w-full h-screen overflow-auto scroll-smooth">
+		<div class="snap-center" id="#">
+			<HeroSection />
 		</div>
-		<div class="contain">
-			<img src="./../../public/logo.png"></img>
-			<div class="card">
-				<img src="./../../public/1.svg"></img>
-        <div class="p">Pinche en la tarjeta</div>
-				<div class="card__content">
-				  <p class="card__title">Afilado de cuchillos</p>
-          <p class="card__description">Nos desplazamos para afilar todo tipo de cuchillo, tijera y más consultenos sin compromiso al telefono.
-           
-				<p class="card__description"><svg xmlns="http://www.w3.org/2000/svg"   class="svg" viewBox="0 0 16 16">
-            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
-          </svg> C/Fraternidad nº8-9 - 11408 Jerez de la frontera</p>
-        
-        
-				<p class="card__description"><svg xmlns="http://www.w3.org/2000/svg" width: "20"; class="svg" viewBox="0 0 16 16">
-          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
-        </svg> info@afiladorpro.com</p></div>
-      
-      
-    </div>
-    <div id="video-container">
-      <div class="slogan">"Un cuchillo <span>afilado</span> no solo es una herramienta en la cocina, es la clave para desatar sabores y texturas, transformando la preparación de alimentos en una danza precisa y placentera."  - (Web en construcción disculpe las molestias)</div>
-        <video id="my-video"  autoplay loop muted>
-            <source src="/public/cortador.mp4" >
-            Tu navegador no soporta el tag de video.
-        </video>
-    </div>
-  </div>
-
+		<div class="snap-center" id="price">
+			<Service />
+		</div>
+		<div class="snap-center" id="about">
+			<About />
+		</div>
+		
+		
 	</main>
+</div>
+<div class="mobile">
+<MenuMobile active="home"/>
+<HeroSectionMenu />
+</div>
 </Layout>
 
 <style>
-
-@keyframes moveClouds {
-  from {
-    background-position: -900px -90px;
-  }
-  to {
-    background-position: 100vw 100vh;
-  }
+	@media screen and (max-width: 450px) {
+    .desktop {
+        display: none;
+    }
 }
-#bg-cloudanm {
-	width: 100vw;
-	height: 100vh;
-	overflow: hidden;
-	z-index: -1;
-	position: fixed;
-	left: 0;
-	top: 0;
-	background: url("/public/vecteezy_conjunto-de-nubes_21888221.png") no-repeat fixed;
-	background-position: -900px -90px;
-	animation: moveClouds 420s linear infinite;
+	@media screen and (min-width: 451px) {
+    .mobile {
+        display: none;
+    }
 }
-
-
-#bg-cloudanm #cvs {
-    width: 2000px;
-    height: 2500px;
-	background-color: rgba(255, 255, 255, 0.94);
-}
-.contain{
-  position:relative;
-	height: 60vh;
-	display: grid;
-	place-content: center;
-  place-items: center;
-	
-}
-
-.card {
-  position: relative;
-  width: 450px;
-  height: 300px;
-  background: linear-gradient(-45deg, #f89b29 0%, #fe0404 100% );
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-  cursor:pointer;
-}
-.card .p{
-  background-color:white;
-  width:100px;
-  height:100px;
-  border-radius: 50%;
-  position:absolute;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:5px;
-  top:0;
-  left:0;
-}
-
-.card img {
-  width: 400px;
-  fill: #333;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-}
-
-.card:hover {
-  transform: rotate(-5deg) scale(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.card:hover .p{
-  display:none;
-}
-
-.card__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  background-color: #fff;
-  opacity: 0;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-}
-
-.card:hover .card__content {
-  transform: translate(-50%, -50%) rotate(0deg);
-  opacity: 1;
-}
-
-.card__title {
-  margin: 0;
-  font-size: 24px;
-  color: #333;
-  font-weight: 700;
-}
-
-.card__description {
-  margin: 10px 0 0;
-  font-size: 14px;
-  color: #777;
-  line-height: 1.4;
-  display:flex;
-}
-
-.card:hover img {
-  scale: 0;
-  transform: rotate(-45deg);
-}
-
-.card .card__content .card__description .svg{
-  margin-right:10px;
-  width: 20px;
-  height: 20px;
-}
-#video-container{
-  position:absolute;
-  left:50%;
-  top:110%;
-  transform: translate( -50%, -50%);
-  width:740px;
-  height:460px;
-  z-index:-1; 
-}
-#my-video{
-  width:740px;
-  height:460px;
-}
-.slogan{
-  position:absolute;
-  bottom:0;
-  left:0;
-  padding:10px;
-  background-color: rgb(255 255 255/.4);
-  font-size:20px;
-}
-
-.slogan span{
-  color:red;
-  text-transform:uppercase;
-  font-weight:bold;
-}
-
-@media screen and (max-width: 640px){
-  .card {
-  position: relative;
-  width: 280px;
-  height: 200px;
-  background: linear-gradient(-45deg, #f89b29 0%, #fe0404 100% );
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-  cursor:pointer;
-}
-.card .p{
-  
-  width:50px;
-  height:50px;
-  font-size:11px;
-  line-height:1;
-}
-.card__description{
-  font-size:11px;
-}
-.card__title{
-  font-size:11px;
-}
-
-#my-video{
-  width:440px;
-  height:360px;
-}
-#video-container{
-  position:absolute;
-  left:50%;
-  top:100%;
-  transform: translate( -50%, -50%);
-  width:340px;
-  height:260px;
-  z-index:-1; 
-}
-.slogan{
-  
-  bottom:-80px;
-  left:0;
-  font-size:12px;
-  line-height:1.1;
-}
-
-
-
-} 
-
-
 </style>
